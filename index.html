@@ -384,73 +384,99 @@
             line-height: 1.7;
         }
 
-        /* Quotes Section */
-        .quotes-section {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-        }
+        /* Quotes Section *//* Quotes Section */
+.quotes-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+}
+.quotes-section .section-title,
+.quotes-section .section-subtitle {
+    color: var(--white);
+}
+.quotes-section .section-subtitle {
+    opacity: 0.9;
+}
 
-        .quotes-section .section-title,
-        .quotes-section .section-subtitle {
-            color: var(--white);
-        }
+/* CORREZIONE QUI SOTTO */
+.quotes-grid {
+    display: grid;
+    /* Ridotto min-width da 350px a 280px per maggiore flessibilità */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    width: 100%; /* Assicura che non superi il contenitore */
+    max-width: 100%;
+    overflow-x: hidden; /* Previene scroll orizzontale accidentale */
+}
 
-        .quotes-section .section-subtitle {
-            opacity: 0.9;
-        }
+.quote-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+    width: 100%; /* La card occupa tutto lo spazio disponibile nella cella */
+    box-sizing: border-box;
+}
 
-        .quotes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+.quote-card:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-5px);
+}
 
-        .quote-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-        }
+.quote-text {
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 2rem;
+    word-wrap: break-word; /* Previene rotture su testi lunghi */
+}
 
-        .quote-card:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-5px);
-        }
+.quote-text::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 3rem;
+    color: var(--accent-color);
+    font-family: 'Playfair Display', serif;
+}
 
-        .quote-text {
-            font-style: italic;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-left: 2rem;
-        }
+.quote-author {
+    font-weight: 700;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
 
-        .quote-text::before {
-            content: '"';
-            position: absolute;
-            left: 0;
-            top: -10px;
-            font-size: 3rem;
-            color: var(--accent-color);
-            font-family: 'Playfair Display', serif;
-        }
+.quote-source {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-top: 0.3rem;
+}
 
-        .quote-author {
-            font-weight: 700;
-            color: var(--accent-color);
-            font-size: 0.9rem;
-        }
+/* MEDIA QUERY AGGIUNTIVA PER MOBILE */
+@media (max-width: 768px) {
+    .quotes-grid {
+        /* Forza una singola colonna su mobile e tablet piccoli */
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+        padding: 0 10px; /* Leggero padding interno alla griglia */
+    }
+    
+    .quote-card {
+        padding: 1.5rem; /* Riduci leggermente il padding interno su mobile */
+    }
+    
+    .quote-text {
+        font-size: 1rem;
+        padding-left: 1.5rem;
+    }
+}
 
-        .quote-source {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            margin-top: 0.3rem;
-        }
 
         /* Target Readers Section */
         .target-readers {
